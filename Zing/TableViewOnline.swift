@@ -167,6 +167,13 @@ extension TableViewOnline :  UITableViewDataSource, UITableViewDelegate {
         edit.backgroundColor = UIColor(red: 248/255, green: 55/255, blue: 186/255, alpha: 1.0)
         return [edit]
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let audio = AudioPlayer.sharedInstance
+        audio.pathString = listSongs[indexPath.row].sourceOnline
+        audio.titleSong = "\(listSongs[indexPath.row].title) - Ca si: \(listSongs[indexPath.row].artistName)"
+        audio.setupAudio()
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "setupObserverAudio"), object: nil)
+    }
 
 
 }

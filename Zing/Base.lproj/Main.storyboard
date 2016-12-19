@@ -10,7 +10,7 @@
         <!--MyMusic-->
         <scene sceneID="Ra8-ZN-sa0">
             <objects>
-                <viewController id="gH7-Mh-xh0" sceneMemberID="viewController">
+                <viewController id="gH7-Mh-xh0" customClass="TableViewLocal" customModule="Zing" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bqb-OD-EP0"/>
                         <viewControllerLayoutGuide type="bottom" id="M8S-1H-KBd"/>
@@ -23,11 +23,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="mac-hZ-HSG">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LocalCell" id="mac-hZ-HSG">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mac-hZ-HSG" id="Rs3-JI-RzU">
-                                            <frame key="frameInset" width="1000" height="44"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -53,6 +53,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="MyMusic" image="iconDownload" id="6UT-yk-7Je"/>
+                    <connections>
+                        <outlet property="myTableView" destination="cVq-Br-QQk" id="Vr4-Ay-nhx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vee-Tj-IUx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -134,10 +137,10 @@
             </objects>
             <point key="canvasLocation" x="279" y="335"/>
         </scene>
-        <!--View Controller-->
+        <!--Audio Player View-->
         <scene sceneID="hD2-lv-kJB">
             <objects>
-                <viewController storyboardIdentifier="PlayAudio" id="mdR-i0-e8c" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayAudio" id="mdR-i0-e8c" customClass="AudioPlayerView" customModule="Zing" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GDm-nz-aLI"/>
                         <viewControllerLayoutGuide type="bottom" id="3Bi-7U-nwC"/>
@@ -186,7 +189,7 @@
                                 <color key="minimumTrackTintColor" red="0.99964730680000002" green="0.96745030880000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="maximumTrackTintColor" red="1" green="0.77389349650000006" blue="0.96168081650000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="sld_Volume:" destination="mdR-i0-e8c" eventType="valueChanged" id="UM2-Vq-Kci"/>
+                                    <action selector="sld_Volume:" destination="mdR-i0-e8c" eventType="valueChanged" id="naJ-Ok-UBx"/>
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXj-Mr-dRV">
@@ -196,7 +199,7 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="play.png"/>
                                 <connections>
-                                    <action selector="action_PlayPause:" destination="mdR-i0-e8c" eventType="touchUpInside" id="dHm-6Y-jz9"/>
+                                    <action selector="action_PlayPause:" destination="mdR-i0-e8c" eventType="touchUpInside" id="B6T-jC-DoP"/>
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9tN-Xd-1E8">
@@ -207,7 +210,7 @@
                                 <color key="onTintColor" red="1" green="0.98268314970000004" blue="0.98256535310000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="thumbTintColor" red="1" green="0.77389349650000006" blue="0.96168081650000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="Repeat:" destination="mdR-i0-e8c" eventType="valueChanged" id="VFp-fr-6MO"/>
+                                    <action selector="action_RepeatSong:" destination="mdR-i0-e8c" eventType="valueChanged" id="ZqS-BW-Sbu"/>
                                 </connections>
                             </switch>
                         </subviews>
@@ -240,10 +243,18 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="136"/>
+                    <connections>
+                        <outlet property="btn_Play" destination="MXj-Mr-dRV" id="NTa-0R-0e4"/>
+                        <outlet property="lbl_CurrentTime" destination="onO-OV-sCb" id="L2J-Ue-tyf"/>
+                        <outlet property="lbl_TotalTime" destination="hkD-gE-kzZ" id="Oay-rM-e3O"/>
+                        <outlet property="lbl_title" destination="pGT-Pw-bFH" id="sIJ-6y-h43"/>
+                        <outlet property="sld_Duration" destination="D7Q-u0-apZ" id="Nl4-Ti-5LU"/>
+                        <outlet property="sld_Volume" destination="1JT-cx-35W" id="PoI-rM-YhI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gm0-tp-BQg" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1197" y="49"/>
+            <point key="canvasLocation" x="1196.8" y="48.575712143928037"/>
         </scene>
     </scenes>
     <resources>
@@ -255,6 +266,6 @@
         <image name="play.png" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Xxc-QJ-h6V"/>
+        <segue reference="7Ok-Jy-Ek5"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1E2E94F51DD17EB7008B5726 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF45E781DD082E4009174E2 /* libxml2.2.dylib */; };
+		1E383F341E07851100A5BF31 /* TableViewLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E383F331E07851100A5BF31 /* TableViewLocal.swift */; };
+		1E383F361E07C0DB00A5BF31 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E383F351E07C0DB00A5BF31 /* AudioPlayer.swift */; };
+		1E383F381E07CA2100A5BF31 /* AudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E383F371E07CA2100A5BF31 /* AudioPlayerView.swift */; };
 		1E50A29F1DE82FA5004B5D79 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E50A29E1DE82FA4004B5D79 /* Song.swift */; };
 		1E5F6A931DD027DF009B38DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5F6A921DD027DF009B38DC /* AppDelegate.swift */; };
 		1E5F6A951DD027DF009B38DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5F6A941DD027DF009B38DC /* ViewController.swift */; };
@@ -32,6 +35,9 @@
 
 /* Begin PBXFileReference section */
 		1E2E94F31DD17E09008B5726 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		1E383F331E07851100A5BF31 /* TableViewLocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewLocal.swift; sourceTree = "<group>"; };
+		1E383F351E07C0DB00A5BF31 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		1E383F371E07CA2100A5BF31 /* AudioPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		1E50A29E1DE82FA4004B5D79 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		1E5F6A8F1DD027DF009B38DC /* Zing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E5F6A921DD027DF009B38DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,7 +104,10 @@
 				1E5F6A921DD027DF009B38DC /* AppDelegate.swift */,
 				1E5F6A941DD027DF009B38DC /* ViewController.swift */,
 				1EF382711DD0787F00F33FCE /* TableViewOnline.swift */,
+				1E383F331E07851100A5BF31 /* TableViewLocal.swift */,
 				1E50A29E1DE82FA4004B5D79 /* Song.swift */,
+				1E383F371E07CA2100A5BF31 /* AudioPlayerView.swift */,
+				1E383F351E07C0DB00A5BF31 /* AudioPlayer.swift */,
 				1E5F6A961DD027DF009B38DC /* Main.storyboard */,
 				1E5F6A991DD027DF009B38DC /* Assets.xcassets */,
 				1E5F6A9B1DD027DF009B38DC /* LaunchScreen.storyboard */,
@@ -232,9 +241,12 @@
 			files = (
 				1E50A29F1DE82FA5004B5D79 /* Song.swift in Sources */,
 				1E5F6A951DD027DF009B38DC /* ViewController.swift in Sources */,
+				1E383F361E07C0DB00A5BF31 /* AudioPlayer.swift in Sources */,
 				1EF382721DD0787F00F33FCE /* TableViewOnline.swift in Sources */,
+				1E383F381E07CA2100A5BF31 /* AudioPlayerView.swift in Sources */,
 				1E5F6A931DD027DF009B38DC /* AppDelegate.swift in Sources */,
 				1EF45E741DD0818B009174E2 /* TFHpple.m in Sources */,
+				1E383F341E07851100A5BF31 /* TableViewLocal.swift in Sources */,
 				1EF45E761DD0818B009174E2 /* XPathQuery.m in Sources */,
 				1EF45E751DD0818B009174E2 /* TFHppleElement.m in Sources */,
 			);
